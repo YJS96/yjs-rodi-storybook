@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Pretendard';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url('../font/PretendardVariable.woff2') format('woff2');
+  }
+
+  :root {
+    --font-pretendard: 'Pretendard' sans-serif;
+
+    /* custom color */
+    --gray-100: #fbfcfd;
+    --gray-200: #f7f8fa;
+    --gray-300: #f1f3f5;
+    --gray-400: #bcc3c9;
+    --gray-500: #99a2ad;
+    --gray-600: #77828f;
+    --gray-700: #5a6574;
+    --gray-800: #47515f;
+    --gray-900: #191f28;
+
+    /* shadcn ui */
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 154 62% 45%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 216 23% 13%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 210 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* @TODO: css로 정의하지 말고 컴포넌트화 할 것 */
+@layer components {
+  .header-text {
+    @apply text-xl font-bold;
+  }
+
+  .transition-200 {
+    @apply transition-all duration-200;
+  }
+
+  /* 로그인 */
+  .login-button {
+    @apply mt-3 flex h-14 items-center justify-center rounded-lg  font-semibold;
+  }
+
+  /* 사이드바 */
+  .sidebar-button {
+    @apply transition-200 flex cursor-pointer items-center rounded-lg px-4 py-2.5 text-sm font-medium text-gray-400 hover:bg-color-bg-green10 hover:text-color-main;
+  }
+
+  .sidebar-active {
+    @apply bg-color-bg-green10 text-color-main;
+  }
+
+  .sidebar-icon-gray {
+    @apply transition-200 absolute opacity-0 group-hover:opacity-100;
+  }
+
+  .sidebar-icon-color {
+    @apply transition-200 absolute opacity-100;
+  }
+
+  /* 홈 탭 */
+  .sub-header {
+    @apply font-semibold text-gray-600;
+  }
+
+  .admin-card {
+    @apply flex flex-col justify-center rounded-xl bg-color-white p-5 text-sm font-medium;
+  }
+
+  .icon-eight {
+    @apply flex h-8 w-8 items-center justify-center rounded-full;
+  }
+
+  .qna-icon {
+    @apply transition-200 absolute bottom-6 right-6 h-[52px] w-[52px] group-hover:h-[60px] group-hover:w-[60px];
+  }
+
+  /* 수집상품 탭 */
+  .px4-button {
+    @apply flex h-full w-auto select-none items-center justify-center rounded-md px-4 text-sm font-medium;
+  }
+
+  .px6-button {
+    @apply flex h-[38px] select-none items-center justify-center rounded px-6 text-[13px] font-medium;
+  }
+
+  .button-color-main {
+    @apply transition-200 bg-color-main text-color-white hover:bg-color-main-hover;
+  }
+
+  .selector {
+    @apply me-2 flex h-full w-auto select-none items-center justify-center rounded-full border border-color-border bg-color-white px-2.5 text-xs text-gray-500 transition-all duration-200 hover:border-gray-600 hover:text-gray-600;
+  }
+
+  .selector-selected {
+    @apply me-2 flex h-full w-auto select-none items-center justify-center rounded-full border border-gray-900 bg-gray-900 px-2.5 text-xs text-color-white;
+  }
+
+  .item-select {
+    @apply absolute left-2.5 top-2.5 z-10 flex h-[30px] w-[30px] items-center justify-center rounded-full;
+  }
+
+  .page-button {
+    @apply me-0.5 flex h-10 w-10 items-center justify-center rounded-lg;
+  }
+
+  /* 등록상품 탭 */
+  .calendar-date {
+    @apply mb-1.5 flex h-[17px] w-[17px] items-center justify-center rounded-full text-[10px];
+  }
+
+  /* 주문관리 탭 */
+  .round-small-button {
+    @apply flex h-7 items-center rounded-full bg-gray-300 px-3 py-2 text-xs font-medium;
+  }
+
+  .home-tab {
+    @apply me-6 flex items-center px-1 py-3 font-medium text-gray-400 shadow-tab;
+  }
+
+  .home-tab-selected {
+    @apply me-6 flex items-center px-1 py-3 font-medium shadow-tab-selected;
+  }
+
+  .gray-rounded {
+    @apply flex w-full items-center rounded-xl bg-gray-200;
+  }
+
+  .orderlist-th {
+    @apply mx-[5px] flex flex-col items-center justify-center font-medium;
+  }
+
+  .input-focus-within:focus-within {
+    @apply border-black;
+  }
+}
